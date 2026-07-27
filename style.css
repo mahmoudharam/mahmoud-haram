@@ -15,13 +15,15 @@ body{
     line-height:1.7;
 }
 
+/* تحديث لتسهيل التموضع المطلق للشعار وزيادة الحشوة العلوية */
 .hero{
     min-height:100vh;
+    position: relative; /* مرجع للشعار */
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:60px 20px;
+    padding: 120px 20px 60px; /* مساحة مريحة علوية للمحتوى */
     background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
     radial-gradient(circle at top,#5c0000 0%,#111 45%,#070707 100%);
@@ -30,11 +32,18 @@ body{
 .hero-content{
     width:100%;
     max-width:900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* يضمن التمركز الكامل للصورة والنصوص في المنتصف */
 }
 
-.logo{
-    width:170px;
-    margin-bottom:30px;
+/* كلاس الشعار الجديد لتثبيته أعلى اليسار بدقة */
+.top-logo {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    width: 170px;
+    margin-bottom: 0;
 }
 
 .profile{
@@ -177,6 +186,18 @@ footer{
 
 @media(max-width:768px){
 
+/* معالجة هبوط وتمركز الشعار على شاشات الهواتف لمنع التداخل */
+.hero {
+    padding-top: 150px;
+}
+
+.top-logo {
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+}
+
 .hero h1{
     font-size:38px;
 }
@@ -187,10 +208,6 @@ footer{
 
 .tagline{
     font-size:17px;
-}
-
-.logo{
-    width:120px;
 }
 
 .profile{
