@@ -1,286 +1,209 @@
-/* ==========================================================================
-   1. Reset & Base Styles (إعادة التعيين والأنماط الأساسية)
-   ========================================================================== */
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-:root {
-  /* تم تحديث لوحة الألوان هنا لتصبح رمادي داكن احترافي */
-  --primary: #1a1a1a;       /* رمادي داكن جداً للعناصر الرئيسية */
-  --secondary: #2d2d2d;     /* رمادي متوسط للكروت والخلفيات المرتفعة */
-  --accent: #c9a227;        /* الحفاظ على الذهبي كلون تفاعلي جذاب */
-  --bg: #121212;            /* رمادي داكن جداً كخلفية أساسية للموقع */
-  --text: #e0e0e0;          /* لون نص فاتح ومريح للعين للقراءة */
-  --white: #2d2d2d;         /* تحويل الكروت البيضاء السابقة إلى رمادي متناسق */
+html{
+    scroll-behavior:smooth;
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0b0b0b;
+    color:#ffffff;
+    line-height:1.7;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px;
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    radial-gradient(circle at top,#5c0000 0%,#111 45%,#070707 100%);
 }
 
-/* ==========================================================================
-   2. Hero Section (قسم الواجهة الرئيسي)
-   ========================================================================== */
-.hero {
-  position: relative; 
-  /* تم تعديل التدرج اللوني فوق الصورة ليتماشى مع المظهر الداكن */
-  background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
-              url('https://unsplash.com');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px 80px; 
+.hero-content{
+    width:100%;
+    max-width:900px;
 }
 
-.hero-content {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
+.logo{
+    width:170px;
+    margin-bottom:30px;
 }
 
-/* الشعار في أعلى اليسار */
-.top-logo {
-  position: absolute;
-  top: 25px;   
-  left: 40px;  
-  width: 180px;
-  height: auto;
-  margin-bottom: 0;
+.profile{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #c40000;
+    margin-bottom:25px;
+    box-shadow:0 0 35px rgba(196,0,0,.45);
 }
 
-/* الصورة الشخصية المتمركزة في المنتصف */
-.profile {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid var(--secondary); /* تم تعديل الإطار ليتناسق مع التصميم الداكن */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+.hero h3{
+    color:#c40000;
+    letter-spacing:3px;
+    font-size:14px;
+    margin-bottom:12px;
 }
 
-.company {
-  color: #d7b54a;
-  letter-spacing: 2px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+.hero h1{
+    font-size:58px;
+    font-weight:700;
+    margin-bottom:10px;
 }
 
-h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+.hero h2{
+    font-size:28px;
+    color:#d8d8d8;
+    font-weight:400;
+    margin-bottom:25px;
 }
 
-.hero h2 {
-  font-weight: 400;
-  margin: 10px 0 20px;
-  color: #b0b0b0; /* لون رمادي فاتح للعناوين الفرعية */
+.tagline{
+    max-width:700px;
+    margin:auto;
+    color:#bbbbbb;
+    font-size:20px;
+    margin-bottom:45px;
 }
 
-.tagline {
-  max-width: 750px;
-  margin: 0 auto 35px;
-  font-size: 1.1rem;
-  color: #ccc;
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
 }
 
-/* ==========================================================================
-   3. Buttons & Interactions (الأزرار والتفاعل)
-   ========================================================================== */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+.buttons a{
+    text-decoration:none;
+    color:white;
+    padding:15px 28px;
+    border-radius:10px;
+    border:1px solid #444;
+    transition:.3s;
+    background:#1b1b1b;
+    min-width:180px;
 }
 
-.buttons a {
-  text-decoration: none;
-  padding: 14px 26px;
-  border-radius: 8px;
-  background: var(--secondary); /* زر خلفيته رمادي متوسط */
-  color: #fff;
-  font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.buttons a:hover{
+    background:#c40000;
+    transform:translateY(-4px);
 }
 
-.buttons a:hover,
-.buttons a:focus-visible {
-  transform: translateY(-4px);
-  background: var(--accent);
-  color: #121212; /* نص داكن عند الوقوف فوق الزر الذهبي للوضوح */
-  outline: none;
+.primary{
+    background:#c40000 !important;
+    border:none !important;
 }
 
-.primary {
-  background: var(--accent) !important;
-  color: #121212 !important;
+section{
+    padding:90px 10%;
 }
 
-.primary:hover,
-.primary:focus-visible {
-  background: #e5ba33 !important; /* درجة ذهبي أفتح قليلاً عند الحركية */
+section h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:45px;
 }
 
-/* ==========================================================================
-   4. Main Sections Structure (هيكل الأقسام العامة)
-   ========================================================================== */
-section {
-  max-width: 1200px;
-  margin: 80px auto;
-  padding: 0 20px;
+.about{
+    background:#111;
 }
 
-section h2 {
-  text-align: center;
-  color: #fff; /* عناوين الأقسام باللون الأبيض لتبرز في الخلفية الداكنة */
-  margin-bottom: 30px;
-  font-size: 2rem;
+.about p{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:#cccccc;
+    font-size:20px;
 }
 
-.about p, 
-.contact p, 
-.download p {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-  font-size: 1.05rem;
-  color: #b0b0b0;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-/* ==========================================================================
-   5. Components Grid Cards (شبكة كروت الخدمات)
-   ========================================================================== */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+.card{
+    background:#171717;
+    padding:35px;
+    border-radius:16px;
+    text-align:center;
+    transition:.35s;
+    border:1px solid #2c2c2c;
+    font-size:40px;
 }
 
-.card {
-  background: var(--white); /* تستخدم الرمز المعدل للرمادي المتوسط */
-  padding: 35px 25px;
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+.card h3{
+    margin-top:20px;
+    font-size:20px;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#c40000;
+    box-shadow:0 15px 35px rgba(196,0,0,.20);
 }
 
-.card h3 {
-  color: var(--accent); /* عناوين الكروت بالذهبي لتصميم فخم */
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+.download{
+    text-align:center;
+    background:#111;
 }
 
-.card p {
-  font-size: 0.95rem;
-  color: #b0b0b0;
+.download a{
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    color:white;
+    padding:18px 40px;
+    border-radius:12px;
+    background:#c40000;
+    font-size:18px;
 }
 
-/* ==========================================================================
-   6. Action & Contact Modules (أقسام التحميل والاتصال)
-   ========================================================================== */
-.download {
-  text-align: center;
+footer{
+    padding:35px;
+    text-align:center;
+    color:#777;
+    background:#080808;
 }
 
-.download a {
-  display: inline-block;
-  margin-top: 25px;
-  text-decoration: none;
-  padding: 15px 32px;
-  border-radius: 8px;
-  background: var(--accent); /* زر التحميل باللون الذهبي البارز */
-  color: #121212;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
 }
 
-.download a:hover {
-  background: #e5ba33;
+.hero h2{
+    font-size:22px;
 }
 
-.contact {
-  background: var(--white); /* خلفية رمادية متوسطة متناسقة */
-  border-radius: 15px;
-  padding: 50px 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+.tagline{
+    font-size:17px;
 }
 
-.contact p {
-  margin: 15px 0;
+.logo{
+    width:120px;
 }
 
-/* ==========================================================================
-   7. Global Footer (التذييل السفلي)
-   ========================================================================== */
-footer {
-  background: #0f0f0f; /* لون أغمق بقليل لتحديد نهاية الصفحة */
-  color: #777;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 80px;
-  font-size: 0.95rem;
+.profile{
+    width:140px;
+    height:140px;
 }
 
-/* ==========================================================================
-   8. Responsive Media Queries (شاشات الموبايل والتابلت)
-   ========================================================================== */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  
-  section {
-    margin: 50px auto;
-  }
-  
-  .hero {
-    padding-top: 130px; 
-  }
-  
-  .top-logo {
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140px;
-  }
-  
-  .profile {
-    width: 140px;
-    height: 140px;
-  }
+.buttons a{
+    width:100%;
+}
 
-  .buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .buttons a {
-    text-align: center;
-    width: 100%;
-  }
+section{
+    padding:70px 25px;
+}
+
 }
