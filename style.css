@@ -1,4 +1,6 @@
-/* Reset and Base Styles */
+/* ==========================================================================
+   1. Reset & Base Styles (إعادة التعيين والأنماط الأساسية)
+   ========================================================================== */
 *{
   margin: 0;
   padding: 0;
@@ -6,12 +8,13 @@
 }
 
 :root {
-  --primary: #0b3a63;
-  --secondary: #174d7a;
-  --accent: #c9a227;
-  --bg: #f5f7fa;
-  --text: #2c3e50;
-  --white: #fff;
+  /* تم تحديث لوحة الألوان هنا لتصبح رمادي داكن احترافي */
+  --primary: #1a1a1a;       /* رمادي داكن جداً للعناصر الرئيسية */
+  --secondary: #2d2d2d;     /* رمادي متوسط للكروت والخلفيات المرتفعة */
+  --accent: #c9a227;        /* الحفاظ على الذهبي كلون تفاعلي جذاب */
+  --bg: #121212;            /* رمادي داكن جداً كخلفية أساسية للموقع */
+  --text: #e0e0e0;          /* لون نص فاتح ومريح للعين للقراءة */
+  --white: #2d2d2d;         /* تحويل الكروت البيضاء السابقة إلى رمادي متناسق */
 }
 
 html {
@@ -27,50 +30,79 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* تحديث قسم الهيرو ليكون مرجعاً للشعار */
+/* ==========================================================================
+   2. Hero Section (قسم الواجهة الرئيسي)
+   ========================================================================== */
 .hero {
-  position: relative; /* مهم جداً لتحديد موقع الشعار بناءً عليه */
-  background: linear-gradient(rgba(11, 58, 99, 0.88), rgba(11, 58, 99, 0.88)),
+  position: relative; 
+  /* تم تعديل التدرج اللوني فوق الصورة ليتماشى مع المظهر الداكن */
+  background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
               url('https://unsplash.com');
   background-size: cover;
   background-position: center;
   color: #fff;
   text-align: center;
-  padding: 100px 20px 80px; /* زيادة الحشوة العلوية لترك مساحة للشعار */
+  padding: 100px 20px 80px; 
 }
 
-/* التموضع الجديد للشعار في أعلى اليسار */
-.top-logo {
-  position: absolute;
-  top: 25px;   /* المسافة من الأعلى */
-  left: 40px;  /* المسافة من اليسار */
-  margin-bottom: 0; /* إلغاء الهامش القديم */
-}
-
-/* محتوى المنتصف يظل متمركزاً تلقائياً */
 .hero-content {
   max-width: 1100px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* يضمن تمركز الصورة والنصوص تماماً */
+  align-items: center; 
 }
 
-/* شاشات الهواتف المحمولة */
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 120px; /* مساحة إضافية على الموبايل */
-  }
-  
-  .top-logo {
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* يتمركز الشعار في المنتصف فوق صورتك على الشاشات الصغيرة لتفادي التداخل */
-    width: 140px;
-  }
+/* الشعار في أعلى اليسار */
+.top-logo {
+  position: absolute;
+  top: 25px;   
+  left: 40px;  
+  width: 180px;
+  height: auto;
+  margin-bottom: 0;
 }
 
-/* Interaction Components */
+/* الصورة الشخصية المتمركزة في المنتصف */
+.profile {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--secondary); /* تم تعديل الإطار ليتناسق مع التصميم الداكن */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.company {
+  color: #d7b54a;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.hero h2 {
+  font-weight: 400;
+  margin: 10px 0 20px;
+  color: #b0b0b0; /* لون رمادي فاتح للعناوين الفرعية */
+}
+
+.tagline {
+  max-width: 750px;
+  margin: 0 auto 35px;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* ==========================================================================
+   3. Buttons & Interactions (الأزرار والتفاعل)
+   ========================================================================== */
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -82,32 +114,34 @@ body {
   text-decoration: none;
   padding: 14px 26px;
   border-radius: 8px;
-  background: #fff;
-  color: var(--primary);
+  background: var(--secondary); /* زر خلفيته رمادي متوسط */
+  color: #fff;
   font-weight: 600;
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .buttons a:hover,
 .buttons a:focus-visible {
   transform: translateY(-4px);
   background: var(--accent);
-  color: #fff;
+  color: #121212; /* نص داكن عند الوقوف فوق الزر الذهبي للوضوح */
   outline: none;
 }
 
 .primary {
   background: var(--accent) !important;
-  color: #fff !important;
+  color: #121212 !important;
 }
 
 .primary:hover,
 .primary:focus-visible {
-  background: var(--secondary) !important;
+  background: #e5ba33 !important; /* درجة ذهبي أفتح قليلاً عند الحركية */
 }
 
-/* Sections Structure */
+/* ==========================================================================
+   4. Main Sections Structure (هيكل الأقسام العامة)
+   ========================================================================== */
 section {
   max-width: 1200px;
   margin: 80px auto;
@@ -116,7 +150,7 @@ section {
 
 section h2 {
   text-align: center;
-  color: var(--primary);
+  color: #fff; /* عناوين الأقسام باللون الأبيض لتبرز في الخلفية الداكنة */
   margin-bottom: 30px;
   font-size: 2rem;
 }
@@ -128,9 +162,12 @@ section h2 {
   margin: auto;
   text-align: center;
   font-size: 1.05rem;
+  color: #b0b0b0;
 }
 
-/* Grid Cards */
+/* ==========================================================================
+   5. Components Grid Cards (شبكة كروت الخدمات)
+   ========================================================================== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -139,31 +176,33 @@ section h2 {
 }
 
 .card {
-  background: #fff;
+  background: var(--white); /* تستخدم الرمز المعدل للرمادي المتوسط */
   padding: 35px 25px;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.4);
 }
 
 .card h3 {
-  color: var(--primary);
+  color: var(--accent); /* عناوين الكروت بالذهبي لتصميم فخم */
   font-size: 1.25rem;
   margin-bottom: 12px;
 }
 
 .card p {
   font-size: 0.95rem;
-  color: var(--text);
+  color: #b0b0b0;
 }
 
-/* Action Modules */
+/* ==========================================================================
+   6. Action & Contact Modules (أقسام التحميل والاتصال)
+   ========================================================================== */
 .download {
   text-align: center;
 }
@@ -174,38 +213,42 @@ section h2 {
   text-decoration: none;
   padding: 15px 32px;
   border-radius: 8px;
-  background: var(--primary);
-  color: #fff;
+  background: var(--accent); /* زر التحميل باللون الذهبي البارز */
+  color: #121212;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .download a:hover {
-  background: var(--accent);
+  background: #e5ba33;
 }
 
 .contact {
-  background: #fff;
+  background: var(--white); /* خلفية رمادية متوسطة متناسقة */
   border-radius: 15px;
   padding: 50px 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .contact p {
   margin: 15px 0;
 }
 
-/* Global Footer */
+/* ==========================================================================
+   7. Global Footer (التذييل السفلي)
+   ========================================================================== */
 footer {
-  background: var(--primary);
-  color: #fff;
+  background: #0f0f0f; /* لون أغمق بقليل لتحديد نهاية الصفحة */
+  color: #777;
   text-align: center;
   padding: 40px 20px;
   margin-top: 80px;
   font-size: 0.95rem;
 }
 
-/* Responsive Overrides */
+/* ==========================================================================
+   8. Responsive Media Queries (شاشات الموبايل والتابلت)
+   ========================================================================== */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -215,6 +258,22 @@ footer {
     margin: 50px auto;
   }
   
+  .hero {
+    padding-top: 130px; 
+  }
+  
+  .top-logo {
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+  }
+  
+  .profile {
+    width: 140px;
+    height: 140px;
+  }
+
   .buttons {
     flex-direction: column;
     align-items: stretch;
@@ -223,14 +282,5 @@ footer {
   .buttons a {
     text-align: center;
     width: 100%;
-  }
-  
-  .logo {
-    width: 140px;
-  }
-  
-  .profile {
-    width: 140px;
-    height: 140px;
   }
 }
