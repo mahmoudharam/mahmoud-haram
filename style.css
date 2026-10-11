@@ -184,6 +184,90 @@ footer{
     background:#080808;
 }
 
+/* --- POPUP WINDOW STYLES WITH SIDE PICTURE --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(4px); 
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto; 
+    padding: 0; 
+    border-radius: 16px;
+    width: 90%; 
+    max-width: 750px; 
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease;
+    border: 1px solid #333;
+}
+
+.modal-body-wrapper {
+    display: flex; 
+}
+
+.modal-image-side {
+    width: 45%;
+    background-color: #171717;
+}
+
+.modal-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.modal-text-side {
+    width: 55%;
+    padding: 40px 30px;
+    color: #111111;
+}
+
+.modal-text-side h2 {
+    margin-top: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #c40000; /* Matching your red accent color */
+    margin-bottom: 15px;
+}
+
+.modal-text-side p {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888888;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #c40000;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media(max-width:768px){
 
 /* معالجة هبوط وتمركز الشعار على شاشات الهواتف لمنع التداخل */
@@ -221,6 +305,23 @@ footer{
 
 section{
     padding:70px 25px;
+}
+
+/* Responsive adjustment for popup window on mobiles */
+.modal-body-wrapper {
+    flex-direction: column; 
+}
+.modal-image-side, .modal-text-side {
+    width: 100%;
+}
+.modal-image-side img {
+    height: 220px;
+}
+.modal-text-side {
+    padding: 30px 20px;
+}
+.modal-content {
+    margin: 15% auto;
 }
 
 }
