@@ -37,6 +37,29 @@ const serviceData = {
     }
 };
 
+// دالة الفتح الذكي والإجبارية لتشغيل تطبيق الخرائط على الآيفون والأندرويد مباشرة
+function openHqLocation(event) {
+    event.preventDefault();
+    
+    const lat = "30.0464126";
+    const lon = "31.3516486";
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        // إجبار الآيفون على تشغيل تطبيق الخرائط المدمج مباشرة بالديب لينك
+        window.location.href = `maps://://google.com{lat},${lon}&amp;ll=`;
+    } else {
+        // إجبار الأندرويد على تشغيل تطبيق الخرائط الرسمي مباشرة ببروتوكول النظام الجغرافي
+        window.location.href = `geo:${lat},${lon}?q=${lat},${lon}(Forces+Plus+Security)`;
+    }
+
+    // رابط الويب الاحتياطي الشامل بالمعرّف الموثق للشركة في حال استغرق الهاتف نصف ثانية للاستجابة
+    setTimeout(function() {
+        window.open("https://google.com", "_blank");
+    }, 500);
+}
+
+// التحكم بالنوافذ المنبثقة للخدمات
 function openModal(serviceKey) {
     const modal = document.getElementById("serviceModal");
     const title = document.getElementById("modalTitle");
@@ -54,7 +77,7 @@ function openModal(serviceKey) {
         };
         
         modal.style.display = "block";
-        modal.style.pointerEvents = "auto"; // تفعيل الضغط عند الفتح الإيجابي للنافذة
+        modal.style.pointerEvents = "auto";
     }
 }
 
@@ -62,7 +85,7 @@ function closeModal() {
     const modal = document.getElementById("serviceModal");
     if (modal) {
         modal.style.display = "none";
-        modal.style.pointerEvents = "none"; // حظر وحجب تداخل الطبقة فور الإغلاق
+        modal.style.pointerEvents = "none";
     }
 }
 
