@@ -195,6 +195,8 @@ footer{
     height: 100%; 
     background-color: rgba(0, 0, 0, 0.7); 
     backdrop-filter: blur(4px); 
+    /* تحديث الأمان: السماح بمرور الضغطات للخلف عندما تكون الحاوية مخفية */
+    pointer-events: none; 
 }
 
 .modal-content {
@@ -209,6 +211,8 @@ footer{
     overflow: hidden;
     animation: modalFadeIn 0.3s ease;
     border: 1px solid #333;
+    /* إرجاع القدرة على الضغط لداخل صندوق المعلومات حصرياً */
+    pointer-events: auto; 
 }
 
 .modal-body-wrapper {
@@ -237,7 +241,7 @@ footer{
     margin-top: 0;
     font-size: 26px;
     font-weight: 700;
-    color: #c40000; /* Matching your red accent color */
+    color: #c40000; 
     margin-bottom: 15px;
 }
 
@@ -270,7 +274,6 @@ footer{
 
 @media(max-width:768px){
 
-/* معالجة هبوط وتمركز الشعار على شاشات الهواتف لمنع التداخل */
 .hero {
     padding-top: 150px;
 }
@@ -307,7 +310,6 @@ section{
     padding:70px 25px;
 }
 
-/* Responsive adjustment for popup window on mobiles */
 .modal-body-wrapper {
     flex-direction: column; 
 }
