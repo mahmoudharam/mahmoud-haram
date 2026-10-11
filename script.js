@@ -1,33 +1,33 @@
-// Central database containing titles, text descriptions, and placeholder images
+// Central database containing titles, text descriptions, and your uploaded images
 const serviceData = {
     guarding: {
         title: "Security Guarding",
-        image: "https://unsplash.com",
+        image: "1.jpg",
         description: "Professional, vetted, and fully trained physical security personnel deployed to safeguard diplomatic missions, corporate properties, and industrial infrastructure 24/7."
     },
     occ: {
         title: "24/7 Operations Control Center",
-        image: "https://unsplash.com",
+        image: "2.jpg",
         description: "Our state-of-the-art dispatch and monitoring hub overseeing real-time tracking, resource allocation, emergency routing, and constant threat intelligence metrics."
     },
     alarm: {
         title: "Intruder Alarm Systems",
-        image: "https://unsplash.com",
+        image: "3.jpg",
         description: "Advanced motion detection grids and early warning deployment architectures that instantly log breaches and feed live tracking data directly to tactical teams."
     },
     cctv: {
         title: "CCTV Solutions",
-        image: "https://unsplash.com",
+        image: "4.jpg",
         description: "High-definition enterprise camera grids integrated with smart software to provide seamless perimeter safety tracking, records management, and video verification."
     },
     access: {
         title: "Access Control",
-        image: "https://unsplash.com",
+        image: "5.jpg",
         description: "Smart credential architectures including biometric portals, proximity verification grids, and secure visitor badging to prevent unauthorized facility entry."
     },
     patrol: {
         title: "Mobile Patrol & Rapid Response",
-        image: "https://unsplash.com",
+        image: "6.jpg",
         description: "Highly visible response units deployed in localized areas, trained to deal with perimeter alarms, situational threats, and crisis intervention tasks."
     }
 };
